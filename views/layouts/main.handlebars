@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just Tech News</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/hpstyle.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a href="/">Just Tech News</a>
+      </h1>
+        {{#if loggedIn}}
+        <div class="searchbar" id="searchWrapper">
+           <input
+           type = "text"
+           name="searchBar"
+           id="searchBar"
+           placeholder="search for movie">
+         </div>
+       <nav>
+       
+         <a href="/dashboard">dashboard</a>
+      <button id="logout" class="btn-no-style">logout</button>
+      {{else}}
+      <a href="/login">login</a>
+      {{/if}}
+    </nav>
+  </header>
+    </header>
+    <main>
+      <div class = "container">
+         
+      <ul id="charactersList"></ul>
+      </div>
+      {{{ body }}}
+      <div class = "container">
+         
+      <ul id="charactersList"></ul>
+      </div>
+    </main>
+    <footer>
+      Thanks for visiting!
+    </footer>
+  </div>
+  {{#if loggedIn}}
+<script src="/javascript/app.js"></script>
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+
+</html>
