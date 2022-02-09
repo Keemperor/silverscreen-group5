@@ -1,7 +1,7 @@
 {
-  "name": "just-tech-news",
+  "name": "Silver_screen",
   "version": "1.0.0",
-  "description": "just tech news",
+  "description": "Silver_screen",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Keemperor/just-tech-news.git"
+    "url": "git+https://github.com/Keemperor/silverscreen-group5.git"
   },
   "author": "Jacob",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Keemperor/just-tech-news/issues"
+    "url": "https://github.com/Keemperor/silverscreen-group5/issues"
   },
-  "homepage": "https://github.com/Keemperor/just-tech-news#readme",
+  "homepage": "https://github.com/Keemperor/silverscreen-group5#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
