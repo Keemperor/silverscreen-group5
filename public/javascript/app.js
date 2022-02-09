@@ -26,7 +26,8 @@ const loadCharacters = async () => {
 
 const displayCharacters = (characters) => {
     const htmlString = characters
-        .map((character) => {
+    .slice(0, 6).map((character) => {
+        
             return `
             <li class="character">
                 <h2>${character.name}</h2>
