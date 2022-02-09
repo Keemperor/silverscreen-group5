@@ -4,14 +4,28 @@ const { Movie, User } = require("../../models");
 
 // get all movies
 router.get("/", (req, res) => {
+  console.log("======================");
   Movie.findAll({
-    // attributes: { exclude: ["password"] },
-  })
-    .then((dbMovieData) => res.json(dbMovieData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    attributes: ["id", "tile", "post_url", "release"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ]
+      .then((dbMovieData) => {
+        const movies = dbMovieData.map((movie) => movie.get({ plain: true }));
+
+        res.render("homepage", {
+          movies,
+          loggedIn: req.session.loggedIn,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      }),
+  });
 });
 
 router.get("/:id", (req, res) => {
