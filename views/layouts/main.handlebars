@@ -15,7 +15,7 @@
       <h1>
         <a href="/">Just Tech News</a>
       </h1>
-        {{#if loggedIn}}
+        {{!-- {{#if loggedIn}} --}}
         <div class="searchbar" id="searchWrapper">
            <input
            type = "text"
@@ -27,9 +27,9 @@
        
          <a href="/dashboard">dashboard</a>
       <button id="logout" class="btn-no-style">logout</button>
-      {{else}}
+      {{!-- {{else}} --}}
       <a href="/login">login</a>
-      {{/if}}
+      {{!-- {{/if}} --}}
     </nav>
   </header>
     </header>
@@ -48,10 +48,10 @@
       Thanks for visiting!
     </footer>
   </div>
-  {{#if loggedIn}}
+  {{!-- {{#if loggedIn}} --}}
 <script src="/javascript/app.js"></script>
 <script src="/javascript/logout.js"></script>
-{{/if}}
+{{!-- {{/if}} --}}
 </body>
 
 </html>
