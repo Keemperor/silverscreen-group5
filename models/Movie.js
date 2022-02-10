@@ -26,6 +26,9 @@ Movie.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    image: {
+      type: DataTypes.VARBINARY(MAX),
+    },
     user_id: {
       type: DataTypes.INTEGER,
       //   references: {
