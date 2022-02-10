@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const router = require("express").Router();
+const sequelize = require("../config/connection");
+const { Movie, User } = require("../models");
 
 // test code
 // router.get('/', (req, res) => {
@@ -17,100 +17,60 @@ const { Post, User, Comment } = require('../models');
 //   });
 // });
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   console.log(req.session);
-  Post.findAll({
-    attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
+  Movie.findAll({
+    attributes: ["id", "post_url", "title", "release", "created_at"],
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+    .then((dbMovieData) => {
+      const movies = dbMovieData.map((movie) => movie.get({ plain: true }));
+      console.log(movies);
       // pass a single post object into the homepage template
-      console.log(dbPostData[0]);
-      res.render('homepage', {
-        posts,
-        loggedIn: req.session.loggedIn
+      res.render("homepage", {
+        movies,
+        loggedIn: req.session.loggedIn,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/post/:id', (req, res) => {
-  Post.findOne({
+router.get("/movies/:id", (req, res) => {
+  Movie.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
-    attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
+    attributes: ["id", "title", "release", "created_at"],
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then((dbMovieData) => {
+      if (!dbMovieData) {
+        res.status(404).json({ message: "No movie found with this id" });
         return;
       }
 
       // serialize the data
-      const post = dbPostData.get({ plain: true });
+      const movie = dbMovieData.get({ plain: true });
 
       // pass data to template
-      res.render('single-post', {
-        post,
-        loggedIn: req.session.loggedIn
+      res.render("single-post", {
+        movie,
+        loggedIn: true,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;
