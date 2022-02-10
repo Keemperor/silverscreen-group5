@@ -5,13 +5,13 @@ const dbMovieData = [
   {
     title: "Juice",
     post_url: "https://www.imdb.com/title/tt0104573/?ref_=fn_al_tt_1",
-    Release: 1992,
+    release: 1992,
   },
 
   {
     title: "Inception",
     post_url: "https://www.imdb.com/title/tt1375666/?ref_=fn_al_tt_1",
-    Release: 2010,
+    release: 2010,
   },
 ];
 

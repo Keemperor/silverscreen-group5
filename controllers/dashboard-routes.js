@@ -33,43 +33,4 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-router.get("/:id", withAuth, (req, res) => {
-  Movie.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: [
-      "id",
-      "title",
-      "created_at",
-      [sequelize.literal("(SELECT COUNT (*) FROM movie WHERE movie.id)")],
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbMovieData) => {
-      if (!dbMovieData) {
-        res.status(404).json({ message: "No movie found with this id" });
-        return;
-      }
-
-      // serialize the data
-      const movie = dbMovieData.get({ plain: true });
-
-      // pass data to template
-      res.render("dashboard", {
-        movie,
-        loggedIn: true,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 module.exports = router;
