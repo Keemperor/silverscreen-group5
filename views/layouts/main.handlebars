@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>Silver Screens</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/hpstyle.css">
 </head>
@@ -16,16 +16,10 @@
         <a href="/">Silver Screens</a>
       </h1>
         {{#if loggedIn}}
-        <div class="searchbar" id="searchWrapper">
-           <input
-           type = "text"
-           name="searchBar"
-           id="searchBar"
-           placeholder="search for movie">
-         </div>
+      
        <nav>
        
-         <a href="/dashboard">dashboard</a>
+         <a href="/dashboard">Home</a>
       <button id="logout" class="btn-no-style">logout</button>
       {{else}}
       <a href="/login">login</a>
@@ -33,19 +27,31 @@
     </nav>
   </header>
     </header>
+      
     <main>
+
+        <!-- Search bar section -->
+     <div class="searchbar" id="searchWrapper">
+           <input
+           type = "text"
+           name="searchBar"
+           id="searchBar"
+           placeholder="search for movie">
+          <button type="submit">Search</button>
+         </div>
+
       <div class = "container">
          
-      <ul id="charactersList"></ul>
+      <ul id="movieList"></ul>
       </div>
       {{{ body }}}
       <div class = "container">
          
-      <ul id="charactersList"></ul>
+      <ul id="movieList"></ul>
       </div>
     </main>
     <footer>
-      Thanks for visiting!
+      See You Soon!
     </footer>
   </div>
   {{#if loggedIn}}

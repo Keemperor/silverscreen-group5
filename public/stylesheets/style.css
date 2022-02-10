@@ -1,28 +1,29 @@
-* {
-  box-sizing: border-box;
+:root {
+  --primary-color: rgb(47, 178, 201);
+  --secondary-color: #cf2222;
+  --tertiary-color: #5a5d5f;
 }
 
-body, html {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-  color: #333;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Georgia, Times, 'Times New Roman', serif;
+    font-weight: lighter;
+  }
 
 a {
+  color: #cf2222;
   text-decoration: none;
-  color: #225ca3;
-  font-weight: bold;
-  transition: color .1s;
-}
-
+} 
+  
 a:hover {
-  color: #3486eb;
+  color: white;
+  text-decoration: none;
 }
 
 button {
-  background-color: #225ca3;
+  background-color: #cf2222;
   border: 0;
   padding: 1%;
   color: white;
@@ -33,12 +34,7 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
-}
-
-.post-list {
-  margin: 0;
-  padding: 0;
+  background-color: #cf2222;
 }
 
 textarea, input {
@@ -49,7 +45,7 @@ textarea, input {
 
 textarea:focus, input:focus {
   outline: none;
-  border: 1px solid #3486eb;
+  border: 1px solid #cf2222;
 }
 
 textarea {
@@ -83,7 +79,8 @@ header {
 }
 
 header h1 {
-  font-size: 1em;
+  font-size: 3em;
+
 }
 .searchBar {
   align-content: center;
@@ -100,7 +97,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: #cf2222;
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -109,67 +106,18 @@ main {
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: #cf2222;
 }
 
-.delete-post-btn {
-  background-color: #d41414;
-}
-
-.delete-post-btn:hover {
-  background-color: #ff643d;
-}
-
-.post {
-  margin-bottom: 2%;
-  line-height: 150%;
-}
-
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
-}
-
-.edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
-}
-
-.comment-form {
-  margin-bottom: 5%;
-}
-
-.comment {
-  padding: 1%;
-  margin-bottom: 1%;
-}
-
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
-
-.comment .meta {
-  font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
-}
-
-.new-post-form input {
-  width: 300px;
-}
-
-.edit-post-form {
-  margin-bottom: 5%;
+.post-list {
+  grid-row: auto;
+  flex: 50%;
+  text-align: center;
+  color:white;
+  margin: 25px;
+  margin-bottom: 50px;
+  line-height: 1.7em;
+  background-color: var(--primary-color);
 }
 
 footer {
