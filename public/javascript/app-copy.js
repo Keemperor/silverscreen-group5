@@ -29,10 +29,10 @@ const displayCharacters = (movies) => {
     .slice(0, 6).map((movies) => {
         
             return `
-            <li class="character">
+            <li class="movie">
                 <h2>${movies.title}</h2>
                  <p>Release: ${movies.release}</p>
-                <img src="${movies.image}"></img>
+              
             </li>
         `;
         })
