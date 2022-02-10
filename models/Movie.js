@@ -25,16 +25,13 @@ Movie.init(
     release: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [4],
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
+      //   references: {
+      //     model: "user",
+      //     key: "id",
+      //   },
     },
   },
   {
