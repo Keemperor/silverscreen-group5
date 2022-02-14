@@ -1,5 +1,5 @@
 <section>
-  <h2>Create New Post</h2>
+  <h2>Movies</h2>
 
   <form class="new-post-form">
     <div>
@@ -14,18 +14,19 @@
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if movies.length}}
 <section>
-  <h2>Your Posts</h2>
+  <h2>Your Movies</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each movies as |movie|}}
     <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      {{> movie-info movie}}
+      <a href="/dashboard{{movie.id}}" class="edit-link">Edit movie</a>
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+{{!-- <script src="/public/javascript/login.js"></script> --}}
+<script src="/public/javascript/app-copy.js"></script>

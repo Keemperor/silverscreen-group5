@@ -17,25 +17,25 @@ const { Movie, User } = require("../models");
 //   });
 // });
 
-router.get("/", (req, res) => {
-  console.log(req.session);
-  Movie.findAll({
-    attributes: ["id", "post_url", "title", "release", "created_at"],
-  })
-    .then((dbMovieData) => {
-      const movies = dbMovieData.map((movie) => movie.get({ plain: true }));
-      console.log(movies);
-      // pass a single post object into the homepage template
-      res.render("homepage", {
-        movies,
-        loggedIn: req.session.loggedIn,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get("/", (req, res) => {
+//   console.log(req.session);
+//   Movie.findAll({
+//     attributes: ["id", "post_url", "title", "release", "created_at"],
+//   })
+//     .then((dbMovieData) => {
+//       const movies = dbMovieData.map((movie) => movie.get({ plain: true }));
+//       console.log(movies);
+//       // pass a single post object into the homepage template
+//       res.render("dashboard", {
+//         movies,
+//         loggedIn: req.session.loggedIn,
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.get("/movies/:id", (req, res) => {
   Movie.findOne({
